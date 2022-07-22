@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{%block content%}
+<div class="container mt-5">
+    <div class="mt3">
+        <a class="btn btn-primary" href="/create-inventory/" role="button">Agregar algo nuevo al inventario</a>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-5">
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button class="mt-4" type="submit">Buscar</button>
+            </form>
+        </div>
+        <div class="col-12 mt-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Consecutivo</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Fecha de creacion</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if inventory %}
+                    {% for data in inventory %}
+                    <tr>
+                        <td>{{data.consecutive}}</td>
+                        <td>{{data.category}}</td>
+                        <td>{{data.count}}</td>
+                        <td>{{data.date_fabrication}}</td>
+                        <td><a class="btn btn-primary" href=/delete_register/{{data.id}} role="button">Eliminar</a></td>
+                    </tr>
+                    {%endfor%}
+                    {%endif%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,15 @@
+{% extends 'index.html'%}
+
+{%block content%}
+<div class="container mt-5">
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Guardar</button>
+    </form>
+
+    <div class="mt-5">
+        <a class="btn btn-primary" href="/" role="button">Ir a la lista</a>
+    </div>
+</div>
+{%endblock%}

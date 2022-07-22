@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{%block content%}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <!-- <form action="" method="post">
+                <label for="exampleFormControlSelect1">Categoria</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>teclado</option>
+                    <option>monitor</option>
+                    <option>mouse</option>
+                    <option>cpu</option>
+                </select>
+                <button type="submit" class="">Buscar</button>
+            </form> -->
+        </div>
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Consecutivo</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Fecha de creacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if inventory %}
+                    {% for data in inventory %}
+                    <tr>
+                        <td>{{data.consecutive}}</td>
+                        <td>{{data.category}}</td>
+                        <td>{{data.count}}</td>
+                        <td>{{data.date_fabrication}}</td>
+                    </tr>
+                    {%endfor%}
+                    {%endif%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{%endblock%}
