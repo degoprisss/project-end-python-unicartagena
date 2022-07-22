@@ -1,1 +1,1 @@
-web: inventory.wsgi --log-file -
+web: inventory.wsgi
